@@ -5,9 +5,9 @@ import decimal, warnings, locale
 
 from decimal import *
 
-locale.setlocale(locale.LC_TIME, 'pt_BR')
-getcontext().prec = 40
-warnings.simplefilter(action = 'ignore', category = UserWarning)
+#locale.setlocale(locale.LC_TIME, 'pt_BR')
+#getcontext().prec = 40
+#warnings.simplefilter(action = 'ignore', category = UserWarning)
 
 paginaInicial = st.navigation(
   {
