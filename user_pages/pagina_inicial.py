@@ -16,6 +16,7 @@ def formatarMoeda(valor: float, simbolo: str = 'R$') -> str:
   return textoFormatado
 
 st.title('Demonstrativo de extrato bancário Inter')
+st.write('Envie o arquivo CSV de extrato do banco Inter para ver seus valores recebidos no períodp')
 
 arquivoUpload = st.file_uploader(
   label = 'Extrato em formato CSV', 
