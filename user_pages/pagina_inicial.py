@@ -19,9 +19,9 @@ st.title('Demonstrativo de extrato bancário Inter')
 st.write('Envie o arquivo CSV de extrato do banco Inter para ver seus valores recebidos no período')
 
 arquivoUpload = st.file_uploader(
-  label = 'Extrato em formato CSV', 
-  type = ['csv'], 
-  accept_multiple_files = False, 
+  label = 'Extrato em formato CSV',
+  type = ['csv'],
+  accept_multiple_files = False,
   key = 'arquivoUpload'
 )
 
@@ -43,7 +43,7 @@ dfExtrato['Valor'] = pd.to_numeric(dfExtrato['Valor'])
 dfExtrato['Data Lançamento'] = dfExtrato['Data Lançamento'].apply(lambda x: datetime.strptime(x, r'%d/%m/%Y').date())
 dfExtrato = dfExtrato[dfExtrato['Valor'] > 0]
 dfExtrato['Mês'] = dfExtrato['Data Lançamento'].apply(lambda x: x.strftime(r'%Y-%m'))
-dfExtrato = dfExtrato.drop(columns = ['Saldo', 'Data Lançamento', 'Histórico'])
+dfExtrato = dfExtrato.drop(columns = ['Saldo', 'Data Lançamento', 'Histórico'], errors = 'ignore')
 dfExtrato.sort_values(by = ['Mês', 'Descrição'], inplace = True)
 dfExtrato = dfExtrato[['Mês', 'Descrição', 'Valor']]
 
